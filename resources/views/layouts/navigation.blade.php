@@ -3,8 +3,16 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
-                <!-- Logo -->
-                <div>{{ Auth::user()->avatar }}</div>
+                
+                <!-- FOTO-->
+               <!-- Verifica si el usuario tiene un avatar -->
+            @if(Auth::user()->avatar)
+            <!-- Muestra la imagen del avatar -->
+                <img src="{{ Auth::user()->avatar }}" alt="Avatar de usuario">
+                @else
+            <!-- Muestra un avatar predeterminado o un mensaje de que no hay avatar -->
+                <img src="{{ url('path/to/default/avatar.png') }}" alt="Avatar predeterminado">
+                @endif
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
