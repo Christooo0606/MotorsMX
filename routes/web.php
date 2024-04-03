@@ -29,12 +29,14 @@ Route::get('/google-auth/redirect', function () {
  
 Route::get('/google-auth/callback', function () {
    
-        $user_google = Socialite::driver('google')->user();
+        $user_google = Socialite::driver('google')->stateless()->user();
+      
      
         $user = User::updateOrCreate([
             'google_id' => $user_google->id,
         ], [
             'name' => $user_google->name,
+            'avatar' => $user_google->avatar,
             'email' => $user_google->email,
           
         ]);
@@ -58,3 +60,17 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+
+/*
+|--------------------------------------------------------------------------
+| API GOOGLE
+|--------------------------------------------------------------------------
+| Al momento de clonar el repositorio es importante recordar que pára su funcionamiento
+| se haga  un composer install para instalar las dependencias despues crear la llave con 
+| el comando: php artisan key:generate despues de clonar el archivo .env y despues  configurarlo.
+| instalar tambien npm install y npm run dev y no olvidar ejecutar el siguiente comando en consola
+| composer require laravel/socialite
+*/
+
