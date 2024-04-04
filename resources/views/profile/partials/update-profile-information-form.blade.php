@@ -13,7 +13,7 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
 
@@ -45,6 +45,36 @@
                     @endif
                 </div>
             @endif
+        </div>
+
+        <div>
+            <x-input-label for="apellidos" :value="__('Apellidos')" />
+            <x-text-input id="apellidos" name="apellidos" type="text" class="mt-1 block w-full" :value="old('apellidos', $user->apellidos)" />
+            <x-input-error class="mt-2" :messages="$errors->get('apellidos')" />
+        </div>
+
+        <div>
+            <x-input-label for="telefono" :value="__('Telefono')" />
+            <x-text-input id="telefono" name="telefono" type="text" class="mt-1 block w-full" :value="old('telefono', $user->telefono)" />
+            <x-input-error class="mt-2" :messages="$errors->get('telefono')" />
+        </div>
+
+        <div>
+            <x-input-label for="domicilio" :value="__('Domicilio')" />
+            <x-text-input id="domicilio" name="domicilio" type="text" class="mt-1 block w-full" :value="old('domicilio', $user->domicilio)" />
+            <x-input-error class="mt-2" :messages="$errors->get('domicilio')" />
+        </div>
+
+        <div>
+            <x-input-label for="edad" :value="__('Edad')" />
+            <x-text-input id="edad" name="edad" type="number" class="mt-1 block w-full" :value="old('edad', $user->edad)" />
+            <x-input-error class="mt-2" :messages="$errors->get('edad')" />
+        </div>
+
+        <div>
+            <x-input-label for="avatar" :value="__('Avatar')" />
+            <input id="avatar" name="avatar" type="file" class="mt-1 block w-full" />
+            <x-input-error class="mt-2" :messages="$errors->get('avatar')" />
         </div>
 
         <div class="flex items-center gap-4">

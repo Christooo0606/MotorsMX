@@ -1,26 +1,36 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-gray-800 border-b border-gray-100 text-white">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
 
                 <!-- FOTO-->
-               <!-- Verifica si el usuario tiene un avatar -->
-            @if(Auth::user()->avatar)
-            <!-- Muestra la imagen del avatar -->
+                <!-- Verifica si el usuario tiene un avatar -->
+                @if(Auth::user()->avatar)
+                <!-- Muestra la imagen del avatar -->
                 <img src="{{ Auth::user()->avatar }}" alt="Avatar de usuario">
                 @else
-            <!-- Muestra un avatar predeterminado o un mensaje de que no hay avatar -->
+                <!-- Muestra un avatar predeterminado o un mensaje de que no hay avatar -->
                 <img src="{{ url('path/to/default/avatar.png') }}" alt="Avatar predeterminado">
                 @endif
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-white">
+                        {{ __('Inicio') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-white">
+                        {{ __('productos') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-white">
+                        {{ __('motos') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-white">
+                        {{ __('carrito') }}
                     </x-nav-link>
                 </div>
             </div>
+
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -28,7 +38,7 @@
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
-                          
+
 
                             <div class="ms-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -39,7 +49,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <x-dropdown-link :href="route('profile.edit')" class="text-black">
                             {{ __('perfil') }}
                         </x-dropdown-link>
 
@@ -47,9 +57,7 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
+                            <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="text-white">
                                 {{ __('salir') }}
                             </x-dropdown-link>
                         </form>
@@ -72,8 +80,8 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-white">
+                {{ __('MOTORSMX') }}
             </x-responsive-nav-link>
         </div>
 
@@ -85,7 +93,7 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+                <x-responsive-nav-link :href="route('profile.edit')" class="text-black">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
@@ -93,9 +101,7 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
+                    <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="text-white">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>

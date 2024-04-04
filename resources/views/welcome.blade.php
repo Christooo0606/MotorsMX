@@ -3,25 +3,27 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tienda de Motos</title>
+    <title>MotorsMX - Tu tienda de motos y accesorios</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Estilos personalizados -->
     <style>
         body {
-            background-color: #f8f9fa; /* Color de fondo */
+            background-color: #222222; /* Color de fondo */
             font-family: Arial, sans-serif; /* Familia de fuente */
-            color: #333333; /* Color del texto principal */
+            color: #ffffff; /* Color del texto principal */
         }
         .header {
-            background-color: #343a40; /* Fondo del encabezado */
+            background-color: #333333; /* Fondo del encabezado */
             color: #ffffff; /* Color del texto del encabezado */
             padding: 20px 0; /* Espaciado interno */
             text-align: center; /* Alineación del texto */
         }
         .logo {
-            font-size: 24px; /* Tamaño de fuente del logo */
+            font-size: 36px; /* Tamaño de fuente del logo */
             font-weight: bold; /* Texto en negrita */
+            text-transform: uppercase; /* Convertir a mayúsculas */
+            letter-spacing: 2px; /* Espaciado entre letras */
         }
         .navbar-links {
             list-style: none; /* Quitar viñetas de la lista */
@@ -39,30 +41,30 @@
             color: #cccccc; /* Color del texto al pasar el ratón */
         }
         .container {
-            max-width: 800px; /* Ancho máximo del contenido */
+            max-width: 1200px; /* Ancho máximo del contenido */
             margin: 0 auto; /* Centrar el contenido en la página */
             padding: 20px; /* Espaciado interno */
-            background-color: #ffffff; /* Fondo del contenedor */
+            background-color: #333333; /* Fondo del contenedor */
             border-radius: 10px; /* Bordes redondeados */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra */
             margin-top: 30px; /* Espaciado superior */
             margin-bottom: 30px; /* Espaciado inferior */
         }
         .contact-info,
         .advertisement,
         .gallery {
-            margin-bottom: 30px; /* Espaciado inferior */
+            margin-bottom: 50px; /* Espaciado inferior */
         }
         .contact-info h2,
         .advertisement h2,
         .gallery h2 {
             margin-bottom: 20px; /* Espaciado inferior */
-            font-size: 22px; /* Tamaño de fuente de los títulos */
-            color: #333333; /* Color del texto de los títulos */
+            font-size: 28px; /* Tamaño de fuente de los títulos */
+            color: #ffffff; /* Color del texto de los títulos */
         }
         .lead {
-            font-size: 16px; /* Tamaño de fuente de los párrafos */
-            color: #666666; /* Color del texto de los párrafos */
+            font-size: 18px; /* Tamaño de fuente de los párrafos */
+            color: #cccccc; /* Color del texto de los párrafos */
             margin-bottom: 15px; /* Espaciado inferior */
         }
         .img-fluid {
@@ -70,13 +72,19 @@
             height: auto; /* Altura automática */
             display: block; /* Mostrar como bloque */
             margin-bottom: 20px; /* Espaciado inferior */
+            border-radius: 5px; /* Bordes redondeados */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Sombra */
+            transition: transform 0.3s ease; /* Transición suave */
+        }
+        .img-fluid:hover {
+            transform: scale(1.05); /* Escalado al pasar el ratón */
         }
         .footer {
             text-align: center; /* Centrar el texto */
-            margin-top: 30px; /* Espaciado superior */
+            margin-top: 50px; /* Espaciado superior */
             padding-top: 20px; /* Espaciado interno superior */
-            border-top: 1px solid #dee2e6; /* Borde superior */
-            color: #666666; /* Color del texto del pie de página */
+            border-top: 1px solid #444444; /* Borde superior */
+            color: #cccccc; /* Color del texto del pie de página */
         }
         .btn-primary {
             background-color: #007bff; /* Color de fondo del botón primario */
@@ -104,15 +112,22 @@
 </head>
 <body>
 <header class="header">
-    <div class="logo">Tienda de Motos</div>
-    <nav>
-        <ul class="navbar-links">
-            <li class="navbar-link"><a href="/google-auth/redirect" class="text-white">Login con Google</a></li>
-            <li class="navbar-link"><a href="{{ route('login') }}" class="text-white">Login</a></li>
-            <li class="navbar-link"><a href="{{ route('register') }}" class="text-white">Registro</a></li>
-        </ul>
-        
-    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="logo">MotorsMX</div>
+            </div>
+            <div class="col-md-6 text-end">
+                <nav>
+                    <ul class="navbar-links">
+                        <li class="navbar-link"><a href="/google-auth/redirect" class="text-white">Ingresar con Google</a></li>
+                        <li class="navbar-link"><a href="{{ route('login') }}" class="text-white">Login</a></li>
+                        <li class="navbar-link"><a href="{{ route('register') }}" class="text-white">Registro</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
 </header>
 <div class="container">
     <div class="contact-info">
@@ -142,7 +157,9 @@
     </div>
 </div>
 <footer class="footer">
-    <p>&copy; 2024 Tienda de Motos. Todos los derechos reservados.</p>
+    <div class="container">
+        <p>&copy; 2024 MotorsMX. Todos los derechos reservados.</p>
+    </div>
 </footer>
 <!-- Bootstrap JS y dependencias -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>

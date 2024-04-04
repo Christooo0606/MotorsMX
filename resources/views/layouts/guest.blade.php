@@ -23,6 +23,8 @@
             </div>
 
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+                <!-- Reemplace $slot con su contenido personalizado -->
+                <h2 class="text-gray-600 font-semibold text-2xl mb-4">MOTORSMX</h2>
                 {{ $slot }}
             </div>
         </div>
